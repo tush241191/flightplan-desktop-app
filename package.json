@@ -1,12 +1,15 @@
 {
-  "name": "react-electron",
+  "name": "FlightPlan App",
   "version": "0.1.0",
-  "description": "Simple boilerplate for developing an Electron app with React",
-  "author": "willjw3",
+  "description": "FlightPlan App",
+  "author": "zero2one",
   "build": {
-    "appId": "react.electron",
+    "appId": "flightplan.app",
+    "mac": {
+      "icon": "build/mac.png"
+    },
     "win": {
-      "icon": "build/icon.png"
+      "icon": "build/win.png"
     }
   },
   "main": "public/electron.js",

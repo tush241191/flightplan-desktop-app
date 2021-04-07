@@ -12,7 +12,7 @@
       "icon": "build/win.png"
     }
   },
-  "main": "electron.js",
+  "main": "public/electron.js",
   "homepage": "./",
   "private": true,
   "dependencies": {

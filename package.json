@@ -12,7 +12,7 @@
       "icon": "build/win.png"
     }
   },
-  "main": "public/electron.js",
+  "main": "electron.js",
   "homepage": "./",
   "private": true,
   "dependencies": {
@@ -54,6 +54,7 @@
     "concurrently": "^5.0.0",
     "electron": "^12.0.2",
     "electron-builder": "^22.1.0",
+    "electron-reload": "^1.5.0",
     "postcss": "^7.0.35",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.4",
     "wait-on": "^3.3.0"

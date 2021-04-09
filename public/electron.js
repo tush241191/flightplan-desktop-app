@@ -9,8 +9,9 @@ const isDev = require("electron-is-dev");
 let mainWindow;
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 1200,
-    height: 800,
+    width: 900,
+    height: 600,
+    resizable: false,
     icon: __dirname + '/public/mac.png',
     webPreferences: {
       nodeIntegration: true,

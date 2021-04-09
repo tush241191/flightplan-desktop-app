@@ -5,6 +5,7 @@ import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 
 const Timer = () => {
     let { code } = useParams();
+    console.log(code);
     const [key, setKey] = useState(0);
     const [state, setState] = useState({
         isPlaying: false,

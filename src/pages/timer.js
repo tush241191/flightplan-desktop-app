@@ -5,6 +5,7 @@ import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 
 const Timer = () => {
     let { code } = useParams();
+    const [key, setKey] = useState(0);
     const [state, setState] = useState({
         isPlaying: false,
         status: 'Idle',
@@ -19,16 +20,17 @@ const Timer = () => {
     })
 
     function sendNotification() {
-        window.electron.notificationApi.sendNotification('Completed!');
+        window.electron.notificationApi.sendNotification(state.status === 'Burning' ? 'Completed!' : 'Refilled!');
         setState({
             ...state,
+            duration: state.status === 'Burning' ? 5 : 10,
             status: state.status === 'Burning' ? 'Refilling' : 'Idle',
             rotation: state.status === 'Burning' ? 'counterclockwise' : 'clockwise',
             isPlaying: state.status === 'Burning' ? true : false,
             colors: [
-                ['#A30000', 0.33],
+                [state.status === 'Burning' ? '#A30000' : '#006600', 0.33],
                 ['#F7B801', 0.33],
-                ['#006600', 0.33],
+                [state.status === 'Burning' ? '#006600' : '#A30000', 0.33],
             ],
             trailColor: state.status === 'Burning' ? '#d9d9d9' : '#006600'
         })
@@ -41,7 +43,7 @@ const Timer = () => {
         return (
             <div className="w-full grid text-center">
                 <div>{minutes}:{seconds}</div>
-                <div>{state.status}</div>
+                <div className="uppercase">{state.status}</div>
             </div>
         )
     }
@@ -91,12 +93,15 @@ const Timer = () => {
                         <div>
                             <div className="mt-1 flex justify-center">
                                 <CountdownCircleTimer
+                                    key={key}
+                                    isLinearGradient={false}
                                     isPlaying={state.isPlaying}
                                     duration={state.duration}
                                     rotation={state.rotation}
                                     colors={state.colors}
                                     onComplete={() => {
                                         sendNotification()
+                                        setKey(prevKey => prevKey + 1)
                                         return [true, 1500] // repeat animation in 1.5 seconds
                                     }}
                                 >

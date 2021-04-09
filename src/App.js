@@ -1,18 +1,11 @@
 import React from "react";
-//import { Link } from "react-router-dom";
+import Dashboard from "./components/dashborad";
 
-function App() {
 
-  return (
-    <div className="bg-black h-screen flex items-center">
-		<div className="mx-auto flex justify-center">
-			<button onClick={() => {
-        window.electron.notificationApi.sendNotification('My custom notification!');
-      }} className="px-4 py-1 bg-green-400 text-white rounded">Click</button>
-		</div>
-        {/* <Link className="App-link" to="/about">Link to the About Page</Link> */}
-    </div>
-  );
+const App = () => {
+    return (
+        <Dashboard/>
+    )
 }
 
 export default App;

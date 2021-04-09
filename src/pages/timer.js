@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { CountdownCircleTimer } from 'react-countdown-circle-timer'
+
 
 const Timer = () => {
     let { code } = useParams();
-    console.log("timer:",code);
-    // function sendNotification() {
-    //     window.electron.notificationApi.sendNotification('My custom notification!');
-    // }
+    console.log("timer:", code);
+    function sendNotification() {
+        window.electron.notificationApi.sendNotification('Completed!');
+    }
 
     return (
         <div className="min-h-screen bg-black flex flex-col p-6">
@@ -18,11 +20,22 @@ const Timer = () => {
                 </Link>
             </div>
             <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-lg">
-                <div className="bg-gray-800 py-8 px-4 shadow sm:rounded-lg sm:px-10">
+                <div className="bg-gray-200 py-8 px-4 shadow sm:rounded-lg sm:px-10">
                     <div className="space-y-6">
                         <div>
-                            <div className="mt-1">
-                                <h1 className="text-white">Timer clock: {code}</h1>
+                            <div className="mt-1 flex justify-center">
+                                <CountdownCircleTimer
+                                    isPlaying
+                                    duration={10}
+                                    colors={[
+                                        ['#006600', 0.33],
+                                        ['#F7B801', 0.33],
+                                        ['#A30000', 0.33],
+                                    ]}
+                                    onComplete={sendNotification}
+                                >
+                                    {({ remainingTime }) => remainingTime}
+                                </CountdownCircleTimer>
                             </div>
                         </div>
                     </div>

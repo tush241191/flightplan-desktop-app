@@ -35,7 +35,7 @@ if (isDev) {
 }
 
 ipcMain.on('notify', (_, message) => {
-  new Notification({title: 'Notifiation', body: message}).show();
+  new Notification({title: 'FlightPlan Notification', body: message}).show();
 })
 
 app.on("ready", createWindow);

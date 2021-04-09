@@ -12,7 +12,7 @@ const Dashboard = () => {
     return (
         <div className="min-h-screen bg-black flex flex-col justify-center py-12 sm:px-6 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-md">
-                <img className="mx-auto h-12 w-auto" src="/FlightPlan-Logo-White.png" alt="Workflow" />
+                <img className="mx-auto h-12 w-auto" src="./FlightPlan-Logo-White.png" alt="Workflow" />
             </div>
 
             <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-lg">

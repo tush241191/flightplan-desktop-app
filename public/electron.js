@@ -37,6 +37,14 @@ if (isDev) {
 
 ipcMain.on('notify', (_, message) => {
   new Notification({title: 'FlightPlan Notification', body: message}).show();
+  // const notifier = require('node-notifier');
+  
+  // notifier.notify({
+  //   appName: "flightplan.app",
+  //   title: 'My FlightPlan Notification',
+  //   message: message
+  // });
+
 })
 
 app.on("ready", createWindow);

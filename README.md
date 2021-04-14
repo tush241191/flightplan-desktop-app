@@ -1,4 +1,4 @@
-# React Electron
+# Flightplan App - Electron & ReactJS Desktop Version
 
 ## Usage
 1. Clone this repository.
